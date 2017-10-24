@@ -6,19 +6,17 @@
 <?import javafx.scene.layout.*?>
 
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-   <top>
-      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox>
          <children>
             <Label text="Log">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
+            <ListView fx:id="historyLogList" prefHeight="373.0" prefWidth="600.0" />
          </children>
-      </HBox>
-   </top>
-   <center>
-      <ListView fx:id="historyLogList" prefHeight="373.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
-   </center>
-</BorderPane>
+      </VBox>
+   </children>
+</AnchorPane>

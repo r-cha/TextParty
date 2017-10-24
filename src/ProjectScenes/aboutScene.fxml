@@ -9,21 +9,32 @@
 <?import javafx.scene.layout.*?>
 
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../Asset%201.jpg" />
-         </image>
-         <VBox.margin>
-            <Insets bottom="25.0" />
-         </VBox.margin>
-      </ImageView>
-      <Label text="Robert Chandler, Joshua Holt, Brian Nicolas, Mason Salisbury">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label text="© 2017" />
+      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../cse360/CSE360/src/ProjectScenes/Asset%201.jpg" />
+               </image>
+               <VBox.margin>
+                  <Insets bottom="25.0" />
+               </VBox.margin>
+            </ImageView>
+            <Label text="Robert Chandler, Joshua Holt, Brian Nicolas, Mason Salisbury">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <contextMenu>
+                  <ContextMenu>
+                    <items>
+                      <MenuItem fx:id="playSnakeMenuItem" mnemonicParsing="false" text="PLAY SNAKE" />
+                    </items>
+                  </ContextMenu>
+               </contextMenu>
+            </Label>
+            <Label text="© 2017" />
+         </children>
+      </VBox>
    </children>
-</VBox>
+</AnchorPane>

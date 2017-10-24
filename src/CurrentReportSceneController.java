@@ -1,11 +1,12 @@
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.text.Text;
 
-public class CurrentReportSceneController {
+public class CurrentReportSceneController implements Initializable{
 
     @FXML
     private ResourceBundle resources;
@@ -39,9 +40,15 @@ public class CurrentReportSceneController {
 
     @FXML
     private Text numberOfSpacesText;
+    
+    private TextParty mainApp;
+    
+    public void setMainApp(TextParty mainApp) {
+    	this.mainApp = mainApp;
+    }
 
     @FXML
-    void initialize() {
+    public void initialize(URL location, ResourceBundle resources) {
         assert wordLengthText != null : "fx:id=\"wordLengthText\" was not injected: check your FXML file 'currentReportScene.fxml'.";
         assert mostCommonWordsList != null : "fx:id=\"mostCommonWordsList\" was not injected: check your FXML file 'currentReportScene.fxml'.";
         assert numberOfLinesText != null : "fx:id=\"numberOfLinesText\" was not injected: check your FXML file 'currentReportScene.fxml'.";

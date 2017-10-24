@@ -1,10 +1,11 @@
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 
-public class HistoryReportController {
+public class HistoryReportController implements Initializable{
 
     @FXML
     private ResourceBundle resources;
@@ -35,9 +36,15 @@ public class HistoryReportController {
 
     @FXML
     private Text numberOfSpacesText;
+    
+    private TextParty mainApp;
+    
+    public void setMainApp(TextParty mainApp) {
+    	this.mainApp = mainApp;
+    }
 
     @FXML
-    void initialize() {
+    public void initialize(URL location, ResourceBundle resources) {
         assert wordLengthText != null : "fx:id=\"wordLengthText\" was not injected: check your FXML file 'historyReportScene.fxml'.";
         assert numberOfLinesText != null : "fx:id=\"numberOfLinesText\" was not injected: check your FXML file 'historyReportScene.fxml'.";
         assert numberOfFilesText != null : "fx:id=\"numberOfFilesText\" was not injected: check your FXML file 'historyReportScene.fxml'.";

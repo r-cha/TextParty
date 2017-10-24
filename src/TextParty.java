@@ -15,11 +15,21 @@ public class TextParty extends Application{
 	public static void main(String[] args) {
 		Application.launch(args);
 	}
+
+	public Stage getPrimaryStage() {
+		return primaryStage;
+	}
 	
 	@Override
-	public void start(Stage stage) throws IOException {
+	public void start(Stage primaryStage) throws IOException {
 		
-
+		this.primaryStage = primaryStage;
+		this.primaryStage.setTitle("TextParty");
+		
+		initRootLayout();
+		
+		showStartupScene();
+		
 	}
 	
 	public void initRootLayout() {
@@ -32,7 +42,7 @@ public class TextParty extends Application{
 			
 			// Show scene with root Layout
 			Scene scene = new Scene(rootLayout);
-			primaryStage.setScene(scene);;
+			primaryStage.setScene(scene);
 			
 			primaryStage.show();
 			
@@ -41,7 +51,7 @@ public class TextParty extends Application{
 		}
 	}
 	
-	public void showStartupPage() {
+	public void showStartupScene() {
 		
 		try {
 			
@@ -50,7 +60,7 @@ public class TextParty extends Application{
 			loader.setLocation(TextParty.class.getResource("ProjectScenes/defaultScene.fxml"));
 			AnchorPane defaultScene = (AnchorPane) loader.load();
 			
-			// Set page into center of root layout
+			// Set Scene into center of root layout
 			rootLayout.setCenter(defaultScene);
 			
 			DefaultSceneController controller = loader.getController();
@@ -61,7 +71,7 @@ public class TextParty extends Application{
 		}
 	}
 	
-	public void showCurrentReportPage() {
+	public void showCurrentReportScene() {
 		
 		try {
 			
@@ -70,7 +80,7 @@ public class TextParty extends Application{
 			loader.setLocation(TextParty.class.getResource("ProjectScenes/currentReportScene.fxml"));
 			AnchorPane currentReportScene = (AnchorPane) loader.load();
 			
-			// Set page into center of root layout
+			// Set Scene into center of root layout
 			rootLayout.setCenter(currentReportScene);
 			
 			CurrentReportSceneController controller = loader.getController();
@@ -81,7 +91,7 @@ public class TextParty extends Application{
 		}
 	}
 	
-	public void showCurrentNoPunctuationPage() {
+	public void showCurrentNoPunctuationScene() {
 		
 		try {
 			
@@ -90,7 +100,7 @@ public class TextParty extends Application{
 			loader.setLocation(TextParty.class.getResource("ProjectScenes/currentNoPunctuationScene.fxml"));
 			AnchorPane currentNoPunctuationScene = (AnchorPane) loader.load();
 			
-			// Set page into center of root layout
+			// Set Scene into center of root layout
 			rootLayout.setCenter(currentNoPunctuationScene);
 			
 			CurrentNoPunctuationController controller = loader.getController();
@@ -101,7 +111,7 @@ public class TextParty extends Application{
 		}
 	}
 	
-	public void showHistoryLogPage() {
+	public void showHistoryLogScene() {
 		
 		try {
 			
@@ -110,7 +120,7 @@ public class TextParty extends Application{
 			loader.setLocation(TextParty.class.getResource("ProjectScenes/historyLogScene.fxml"));
 			AnchorPane historyLogScene = (AnchorPane) loader.load();
 			
-			// Set page into center of root layout
+			// Set Scene into center of root layout
 			rootLayout.setCenter(historyLogScene);
 			
 			HistoryLogController controller = loader.getController();
@@ -121,7 +131,7 @@ public class TextParty extends Application{
 		}
 	}
 	
-	public void showHistoryReportPage() {
+	public void showHistoryReportScene() {
 		
 		try {
 			
@@ -130,7 +140,7 @@ public class TextParty extends Application{
 			loader.setLocation(TextParty.class.getResource("ProjectScenes/historyReportScene.fxml"));
 			AnchorPane historyReportScene = (AnchorPane) loader.load();
 			
-			// Set page into center of root layout
+			// Set Scene into center of root layout
 			rootLayout.setCenter(historyReportScene);
 			
 			HistoryReportController controller = loader.getController();
@@ -141,7 +151,7 @@ public class TextParty extends Application{
 		}
 	}
 	
-	public void showHelpPage() {
+	public void showHelpScene() {
 		
 		try {
 			
@@ -150,7 +160,7 @@ public class TextParty extends Application{
 			loader.setLocation(TextParty.class.getResource("ProjectScenes/helpScene.fxml"));
 			AnchorPane helpScene = (AnchorPane) loader.load();
 			
-			// Set page into center of root layout
+			// Set Scene into center of root layout
 			rootLayout.setCenter(helpScene);
 			
 			HelpController controller = loader.getController();
@@ -161,7 +171,7 @@ public class TextParty extends Application{
 		}
 	}
 	
-	public void showAboutPage() {
+	public void showAboutScene() {
 		
 		try {
 			
@@ -170,7 +180,7 @@ public class TextParty extends Application{
 			loader.setLocation(TextParty.class.getResource("ProjectScenes/aboutScene.fxml"));
 			AnchorPane aboutScene = (AnchorPane) loader.load();
 			
-			// Set page into center of root layout
+			// Set Scene into center of root layout
 			rootLayout.setCenter(aboutScene);
 			
 			AboutController controller = loader.getController();

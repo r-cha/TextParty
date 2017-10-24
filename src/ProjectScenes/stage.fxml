@@ -5,37 +5,35 @@
 <?import javafx.scene.layout.*?>
 
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="600.0">
+<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <MenuBar prefHeight="25.0" prefWidth="600.0" BorderPane.alignment="CENTER">
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-                  <MenuItem mnemonicParsing="false" text="Open File..." />
-                  <Menu mnemonicParsing="false" text="Recent &gt;" />
-              <MenuItem mnemonicParsing="false" text="Close" />
+                  <MenuItem fx:id="openFileMenuItem" mnemonicParsing="false" text="Open File..." />
+              <MenuItem fx:id="closeMenuItem" mnemonicParsing="false" text="Close" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="View">
             <items>
-              <MenuItem mnemonicParsing="false" text="Current Report" />
-                  <MenuItem mnemonicParsing="false" text="Current w/o Punctuation" />
+              <MenuItem fx:id="currentReportMenuItem" mnemonicParsing="false" text="Current Report" />
+                  <MenuItem fx:id="removePunctuationMenuItem" mnemonicParsing="false" text="Current w/o Punctuation" />
                   <Menu mnemonicParsing="false" text="History">
                     <items>
-                      <MenuItem mnemonicParsing="false" text="Log" />
-                        <MenuItem mnemonicParsing="false" text="Report" />
+                      <MenuItem fx:id="historyLogMenuItem" mnemonicParsing="false" text="Log" />
+                        <MenuItem fx:id="historyReportMenuItem" mnemonicParsing="false" text="Report" />
                     </items>
                   </Menu>
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>
-                  <MenuItem mnemonicParsing="false" text="Help" />
-              <MenuItem mnemonicParsing="false" text="About" />
+                  <MenuItem fx:id="helpMenuItem" mnemonicParsing="false" text="Help" />
+              <MenuItem fx:id="aboutMenuItem" mnemonicParsing="false" text="About" />
             </items>
           </Menu>
         </menus>
       </MenuBar>
-      <Pane layoutX="1.0" layoutY="27.0" prefHeight="375.0" prefWidth="600.0" />
-   </children>
-</Pane>
+   </top>
+</BorderPane>
