@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Text layoutX="199.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current File:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="currentFileNameText" layoutX="305.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="No File Selected">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Button fx:id="analyzeButton" layoutX="255.0" layoutY="241.0" mnemonicParsing="false" text="Analyze!">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+   </children>
+</Pane>
