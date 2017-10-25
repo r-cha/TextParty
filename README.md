@@ -7,10 +7,10 @@ Text Files Analyzer:
 - [x] GUI
 - [x] Opening and validating file names
 - [x] Reading text from file and reporting
-     - # lines
-     - # blank lines
-     - # spaces
-     - # words
+     - number of lines
+     - number of blank lines
+     - number of spaces
+     - number of words
      - Average chars per line
      - Average word length
      - Most common words
