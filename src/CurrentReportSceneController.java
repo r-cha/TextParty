@@ -1,5 +1,7 @@
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -18,7 +20,7 @@ public class CurrentReportSceneController extends RootController implements Init
     private Text wordLengthText;
 
     @FXML
-    private ListView<?> mostCommonWordsList;
+    private ListView<String> mostCommonWordsList;
 
     @FXML
     private Text numberOfLinesText;
@@ -59,5 +61,16 @@ public class CurrentReportSceneController extends RootController implements Init
         assert numberOfWordsText != null : "fx:id=\"numberOfWordsText\" was not injected: check your FXML file 'currentReportScene.fxml'.";
         assert numberOfSpacesText != null : "fx:id=\"numberOfSpacesText\" was not injected: check your FXML file 'currentReportScene.fxml'.";
 
+        if (mainApp.current != null) {
+        	wordLengthText.setText(Double.toString(mainApp.current.getWordLength()));
+        	mostCommonWordsList.setItems(FXCollections.observableArrayList(mainApp.current.getCommonWords()));
+        	numberOfLinesText.setText(Integer.toString(mainApp.current.getNumLines()));
+        	fileNameText.setText(mainApp.current.getFileName());
+        	numberOfBlankLinesText.setText(Integer.toString(mainApp.current.getBlankLines()));
+        	charactersPerLineText.setText(Double.toString(mainApp.current.getCharLines()));
+        	numberOfWordsText.setText(Integer.toString(mainApp.current.getNumWords()));
+        	numberOfSpacesText.setText(Integer.toString(mainApp.current.getNumSpaces()));
+        }
+        
     }
 }

@@ -56,8 +56,22 @@ public class RootController implements Initializable {
         assert helpMenuItem != null : "fx:id=\"helpMenuItem\" was not injected: check your FXML file 'stage.fxml'.";
         assert historyReportMenuItem != null : "fx:id=\"historyReportMenuItem\" was not injected: check your FXML file 'stage.fxml'.";
 
+        openFileMenuItem.setOnAction(new EventHandler<ActionEvent>() {
+        	@Override
+        	public void handle(ActionEvent event) {
+        		
+        		try {
+        			
+        			System.err.println("OPEN");
+					
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+        		
+        	}
+        });
+        
         closeMenuItem.setOnAction(new EventHandler<ActionEvent>() {
-        	
         	@Override
         	public void handle(ActionEvent event) {
         		

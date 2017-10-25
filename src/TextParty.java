@@ -14,6 +14,8 @@ public class TextParty extends Application{
 	private AnchorPane defaultScene, currentReportScene, currentNoPunctuationScene, historyLogScene, historyReportScene, helpScene, aboutScene;
 	private RootController rootController;
 
+	public ActiveFile current;
+	
 	public static void main(String[] args) {
 		Application.launch(args);
 	}
