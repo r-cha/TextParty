@@ -127,6 +127,8 @@ public class ActiveFile {
 		//Finding average word length
 		avgWordLength = (double) totWordLength / numWords;
 		
+		// TODO: Implement space counter
+		
 	}
 	
 	public void removePunctuation() {

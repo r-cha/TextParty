@@ -62,7 +62,7 @@ public class HistoryReportController extends RootController implements Initializ
     	
     	for (RecordFile record : mainApp.history) {
     		
-    		// Insert Historical record calculations here
+    		// TODO: Insert Historical record calculations here
     		
     	}
     	

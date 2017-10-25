@@ -90,7 +90,6 @@ public class RootController implements Initializable {
         		
         		try {
         			
-        			System.err.println("STOP");
 					mainApp.stop();
 					
 				} catch (Exception e) {
@@ -146,7 +145,7 @@ public class RootController implements Initializable {
         		
         		try {
         			
-        			System.err.println("HISTORY");
+        			System.err.println("HISTORY LOG");
 					mainApp.showHistoryLogScene();
 					
 				} catch (Exception e) {

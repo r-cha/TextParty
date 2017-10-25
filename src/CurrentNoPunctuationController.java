@@ -39,6 +39,8 @@ public class CurrentNoPunctuationController extends RootController implements In
 
 	public void update() {
 		
+		// TODO: Fix this
+		
 		if (mainApp.current != null) {
 			
 			fileNameText.setText(mainApp.current.getFile().getName());

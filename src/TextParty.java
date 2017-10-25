@@ -34,6 +34,8 @@ public class TextParty extends Application{
 		
 		history = new ArrayList<RecordFile>();
 		
+		primaryStage.setResizable(false);
+		
 		initRootLayout();
 
 		showDefaultScene();
@@ -43,6 +45,9 @@ public class TextParty extends Application{
 	@Override
 	public void stop() throws Exception{
 		
+		// TODO: Save history
+		
+		System.err.println("STOP");
 		primaryStage.close();
 		
 	}
