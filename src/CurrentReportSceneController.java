@@ -2,6 +2,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -60,17 +62,34 @@ public class CurrentReportSceneController extends RootController implements Init
         assert charactersPerLineText != null : "fx:id=\"charactersPerLineText\" was not injected: check your FXML file 'currentReportScene.fxml'.";
         assert numberOfWordsText != null : "fx:id=\"numberOfWordsText\" was not injected: check your FXML file 'currentReportScene.fxml'.";
         assert numberOfSpacesText != null : "fx:id=\"numberOfSpacesText\" was not injected: check your FXML file 'currentReportScene.fxml'.";
-
+        
+        reanalyzeButton.setOnAction(new EventHandler<ActionEvent>() {
+        	@Override
+        	public void handle(ActionEvent event) {
+        		
+        		try {
+        			
+        			System.err.println("REFRESH");
+					update();
+					
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+        		
+        	}
+        });
+    }
+    
+    public void update() {
         if (mainApp.current != null) {
         	wordLengthText.setText(Double.toString(mainApp.current.getWordLength()));
         	mostCommonWordsList.setItems(FXCollections.observableArrayList(mainApp.current.getCommonWords()));
         	numberOfLinesText.setText(Integer.toString(mainApp.current.getNumLines()));
-        	fileNameText.setText(mainApp.current.getFileName());
+        	fileNameText.setText(mainApp.current.getFile().getName());
         	numberOfBlankLinesText.setText(Integer.toString(mainApp.current.getBlankLines()));
         	charactersPerLineText.setText(Double.toString(mainApp.current.getCharLines()));
         	numberOfWordsText.setText(Integer.toString(mainApp.current.getNumWords()));
         	numberOfSpacesText.setText(Integer.toString(mainApp.current.getNumSpaces()));
         }
-        
     }
 }

@@ -8,32 +8,44 @@ import javafx.scene.text.TextFlow;
 
 public class CurrentNoPunctuationController extends RootController implements Initializable{
 
-    @FXML
-    private ResourceBundle resources;
+	@FXML
+	private ResourceBundle resources;
 
-    @FXML
-    private URL location;
+	@FXML
+	private URL location;
 
-    @FXML
-    private TextFlow textWithoutPunctuationTexftFlow;
+	@FXML
+	private TextFlow textWithoutPunctuationTexftFlow;
 
-    @FXML
-    private Text fileNameText;
+	@FXML
+	private Text fileNameText;
 
-    @FXML
-    private Button saveButton;
-    
-    private TextParty mainApp;
-    
-    public void setMainApp(TextParty mainApp) {
-    	this.mainApp = mainApp;
-    }
+	@FXML
+	private Button saveButton;
 
-    @FXML
-    public void initialize(URL location, ResourceBundle resources) {
-        assert textWithoutPunctuationTexftFlow != null : "fx:id=\"textWithoutPunctuationTexftFlow\" was not injected: check your FXML file 'currentNoPunctuationScene.fxml'.";
-        assert fileNameText != null : "fx:id=\"fileNameText\" was not injected: check your FXML file 'currentNoPunctuationScene.fxml'.";
-        assert saveButton != null : "fx:id=\"saveButton\" was not injected: check your FXML file 'currentNoPunctuationScene.fxml'.";
+	private TextParty mainApp;
 
-    }
+	public void setMainApp(TextParty mainApp) {
+		this.mainApp = mainApp;
+	}
+
+	@FXML
+	public void initialize(URL location, ResourceBundle resources) {
+		assert textWithoutPunctuationTexftFlow != null : "fx:id=\"textWithoutPunctuationTexftFlow\" was not injected: check your FXML file 'currentNoPunctuationScene.fxml'.";
+		assert fileNameText != null : "fx:id=\"fileNameText\" was not injected: check your FXML file 'currentNoPunctuationScene.fxml'.";
+		assert saveButton != null : "fx:id=\"saveButton\" was not injected: check your FXML file 'currentNoPunctuationScene.fxml'.";
+
+	}
+
+	public void update() {
+		
+		if (mainApp.current != null) {
+			
+			fileNameText.setText(mainApp.current.getFile().getName());
+			Text content = new Text(mainApp.current.getNoPunctuation());
+			textWithoutPunctuationTexftFlow = new TextFlow(content);
+			
+		}
+		
+	}
 }

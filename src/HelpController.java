@@ -27,5 +27,9 @@ public class HelpController extends RootController implements Initializable{
         assert helpTextFlow != null : "fx:id=\"helpTextFlow\" was not injected: check your FXML file 'helpScene.fxml'.";
 
     }
+    
+    public void update() {
+    	
+    }
 	
 }

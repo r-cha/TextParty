@@ -55,4 +55,8 @@ public class HistoryReportController extends RootController implements Initializ
         assert numberOfSpacesText != null : "fx:id=\"numberOfSpacesText\" was not injected: check your FXML file 'historyReportScene.fxml'.";
 
     }
+    
+    public void update() {
+    	
+    }
 }

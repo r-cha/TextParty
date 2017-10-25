@@ -1,4 +1,5 @@
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.ArrayList;
@@ -7,10 +8,8 @@ import java.util.Scanner;
 public class ActiveFile {
 
 	private Scanner readIn;
-	private FileWriter fstream;
-	private BufferedWriter writeOut;
 	private String noPunctuation; //File with punctuation removed
-	private String fileName; //File name being read
+	private File file; //File name being read
 	private int numLines; //number of lines in file
 	private int blankLines; //number of blank lines in file
 	private int numWords; //total number of words in file
@@ -22,9 +21,9 @@ public class ActiveFile {
 	ArrayList<Object> wordCount; //index = word, index + 1 = number of times word occurs
 	private String completeFile;
 
-	public ActiveFile() {
+	public ActiveFile(File selected) {
 		noPunctuation = "";
-		fileName = "";
+		file = selected;
 		numLines = 0;
 		blankLines = 0;
 		numWords = 0;
@@ -37,35 +36,10 @@ public class ActiveFile {
 		numSpaces = 0;
 	}
 
-	public void openSave() {
-
-		try {
-
-			readIn = new Scanner(new FileReader("saveFile.txt"));
-
-		} catch (Exception e) {
-
-			//Creates a new save file if one does not already exist
-			try {
-
-				fstream = new FileWriter("saveFile.txt");
-				writeOut = new BufferedWriter(fstream);
-				writeOut.write("");
-
-			} catch (Exception excep) {
-
-				excep.printStackTrace();
-
-			}
-
-		}
-
-	}
-
 	public void openFile() {
 		try {
 			
-			readIn = new Scanner(new FileReader(fileName));
+			readIn = new Scanner(new FileReader(file.getAbsolutePath()));
 			while(readIn.hasNextLine())
 				fileLines.add(readIn.nextLine());
 			readIn.close();
@@ -191,8 +165,8 @@ public class ActiveFile {
 		return avgCharLines;
 	}
 	
-	public String getFileName() {
-		return fileName;
+	public File getFile() {
+		return file;
 	}
 	
 	public ArrayList<String> getCommonWords() {

@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -15,6 +16,7 @@ public class TextParty extends Application{
 	private RootController rootController;
 
 	public ActiveFile current;
+	public ArrayList<RecordFile> history;
 	
 	public static void main(String[] args) {
 		Application.launch(args);
@@ -30,13 +32,16 @@ public class TextParty extends Application{
 		this.primaryStage = primaryStage;
 		this.primaryStage.setTitle("TextParty");
 		
+		history = new ArrayList<RecordFile>();
+		
 		initRootLayout();
 
-		showStartupScene();
+		showDefaultScene();
 
 	}
 	
-	public void stop() {
+	@Override
+	public void stop() throws Exception{
 		
 		primaryStage.close();
 		
@@ -74,7 +79,7 @@ public class TextParty extends Application{
 		}
 	}
 
-	public void showStartupScene() {
+	public void showDefaultScene() {
 
 		try {
 
@@ -88,6 +93,7 @@ public class TextParty extends Application{
 
 			DefaultSceneController controller = (DefaultSceneController) loader.getController();
 			controller.setMainApp(this);
+			controller.update();
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -108,6 +114,7 @@ public class TextParty extends Application{
 
 			CurrentReportSceneController controller = loader.getController();
 			controller.setMainApp(this);
+			controller.update();
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -128,6 +135,7 @@ public class TextParty extends Application{
 
 			CurrentNoPunctuationController controller = loader.getController();
 			controller.setMainApp(this);
+			controller.update();
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -148,6 +156,7 @@ public class TextParty extends Application{
 
 			HistoryLogController controller = loader.getController();
 			controller.setMainApp(this);
+			controller.update();
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -168,6 +177,7 @@ public class TextParty extends Application{
 
 			HistoryReportController controller = loader.getController();
 			controller.setMainApp(this);
+			controller.update();
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -188,6 +198,7 @@ public class TextParty extends Application{
 
 			HelpController controller = loader.getController();
 			controller.setMainApp(this);
+			controller.update();
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -208,6 +219,7 @@ public class TextParty extends Application{
 
 			AboutController controller = loader.getController();
 			controller.setMainApp(this);
+			controller.update();
 
 		} catch (Exception e) {
 			e.printStackTrace();

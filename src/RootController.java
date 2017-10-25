@@ -6,6 +6,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.MenuItem;
+import javafx.stage.FileChooser;
 
 public class RootController implements Initializable {
 
@@ -56,13 +57,25 @@ public class RootController implements Initializable {
         assert helpMenuItem != null : "fx:id=\"helpMenuItem\" was not injected: check your FXML file 'stage.fxml'.";
         assert historyReportMenuItem != null : "fx:id=\"historyReportMenuItem\" was not injected: check your FXML file 'stage.fxml'.";
 
+        /*
+         * FILE Menu
+         */
+        
         openFileMenuItem.setOnAction(new EventHandler<ActionEvent>() {
         	@Override
         	public void handle(ActionEvent event) {
         		
         		try {
         			
-        			System.err.println("OPEN");
+        			System.err.println("OPEN");        			
+        			FileChooser fileChooser = new FileChooser();
+        			fileChooser.setTitle("Open Resource File");
+        			mainApp.current = new ActiveFile(fileChooser.showOpenDialog(mainApp.getPrimaryStage()));
+        			
+        			if (mainApp.current != null)
+        				mainApp.history.add(new RecordFile(mainApp.current));
+        			
+        			mainApp.showDefaultScene();
 					
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -79,6 +92,115 @@ public class RootController implements Initializable {
         			
         			System.err.println("STOP");
 					mainApp.stop();
+					
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+        		
+        	}
+        });
+        
+        /*
+         * VIEW menu
+         */
+        
+        currentReportMenuItem.setOnAction(new EventHandler<ActionEvent>() {
+        	@Override
+        	public void handle(ActionEvent event) {
+        		
+        		try {
+        			
+        			System.err.println("CURRENT REPORT");
+					mainApp.showCurrentReportScene();
+					
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+        		
+        	}
+        });
+        
+        removePunctuationMenuItem.setOnAction(new EventHandler<ActionEvent>() {
+        	@Override
+        	public void handle(ActionEvent event) {
+        		
+        		try {
+        			
+        			System.err.println("CURRENT W//O PUNCTUATION");
+        			
+        			if (mainApp.current != null)
+        				mainApp.current.removePunctuation();
+        			
+					mainApp.showCurrentNoPunctuationScene();
+					
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+        		
+        	}
+        });
+        
+        historyLogMenuItem.setOnAction(new EventHandler<ActionEvent>() {
+        	@Override
+        	public void handle(ActionEvent event) {
+        		
+        		try {
+        			
+        			System.err.println("HISTORY");
+					mainApp.showHistoryLogScene();
+					
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+        		
+        	}
+        });
+        
+        historyReportMenuItem.setOnAction(new EventHandler<ActionEvent>() {
+        	@Override
+        	public void handle(ActionEvent event) {
+        		
+        		try {
+        			
+        			System.err.println("HISTORY REPORT");
+					mainApp.showHistoryReportScene();
+					
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+        		
+        	}
+        });
+        
+        
+        /*
+         * HELP Menu
+         */
+        
+        helpMenuItem.setOnAction(new EventHandler<ActionEvent>() {
+        	@Override
+        	public void handle(ActionEvent event) {
+        		
+        		try {
+        			
+        			System.err.println("HELP");
+					mainApp.showHelpScene();
+					
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+        		
+        	}
+        });
+        
+        aboutMenuItem.setOnAction(new EventHandler<ActionEvent>() {
+        	@Override
+        	public void handle(ActionEvent event) {
+        		
+        		try {
+        			
+        			System.err.println("ABOUT");
+					mainApp.showAboutScene();
 					
 				} catch (Exception e) {
 					e.printStackTrace();

@@ -33,14 +33,29 @@ public class DefaultSceneController extends RootController implements Initializa
         assert currentFileNameText != null : "fx:id=\"currentFileNameText\" was not injected: check your FXML file 'defaultScene.fxml'.";
         assert analyzeButton != null : "fx:id=\"analyzeButton\" was not injected: check your FXML file 'defaultScene.fxml'.";
         
+        
         analyzeButton.setOnAction(new EventHandler<ActionEvent>() {
         	
         	@Override
         	public void handle(ActionEvent event) {
-        		System.err.println("BUTTON");
+        		System.err.println("ANALYZE");
+        		if (mainApp.current != null) {
+        			
+        			mainApp.current.openFile();
+        			mainApp.current.analyze();
+        			
+        		}
         		mainApp.showCurrentReportScene();
         	}
         });
+        
+    }
+    
+    public void update() {
+    	
+    	if (mainApp.current != null)
+    		currentFileNameText.setText(mainApp.current.getFile().getName());
+    	
     }
     
 }

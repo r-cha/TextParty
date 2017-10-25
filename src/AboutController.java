@@ -26,4 +26,8 @@ public class AboutController extends RootController implements Initializable{
         assert playSnakeMenuItem != null : "fx:id=\"playSnakeMenuItem\" was not injected: check your FXML file 'aboutScene.fxml'.";
 
     }
+    
+    public void update() {
+    	
+    }
 }

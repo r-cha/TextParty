@@ -1,5 +1,7 @@
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
@@ -13,7 +15,7 @@ public class HistoryLogController extends RootController implements Initializabl
     private URL location;
 
     @FXML
-    private ListView<?> historyLogList;
+    private ListView<RecordFile> historyLogList;
     
     private TextParty mainApp;
     
@@ -25,5 +27,11 @@ public class HistoryLogController extends RootController implements Initializabl
     public void initialize(URL location, ResourceBundle resources) {
         assert historyLogList != null : "fx:id=\"historyLogList\" was not injected: check your FXML file 'historyLogScene.fxml'.";
 
+    }
+    
+    public void update() {
+    	
+    	historyLogList.setItems(FXCollections.observableArrayList(mainApp.history));
+    	
     }
 }
