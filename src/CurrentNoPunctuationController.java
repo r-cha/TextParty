@@ -6,7 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 
-public class CurrentNoPunctuationController implements Initializable{
+public class CurrentNoPunctuationController extends RootController implements Initializable{
 
     @FXML
     private ResourceBundle resources;

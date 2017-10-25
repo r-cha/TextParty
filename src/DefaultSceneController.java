@@ -37,6 +37,7 @@ public class DefaultSceneController extends RootController implements Initializa
         	
         	@Override
         	public void handle(ActionEvent event) {
+        		System.err.println("BUTTON");
         		mainApp.showCurrentReportScene();
         	}
         });

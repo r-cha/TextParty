@@ -4,7 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
 
-public class HistoryLogController implements Initializable{
+public class HistoryLogController extends RootController implements Initializable{
 
     @FXML
     private ResourceBundle resources;

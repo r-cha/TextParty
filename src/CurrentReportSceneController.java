@@ -6,7 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.text.Text;
 
-public class CurrentReportSceneController implements Initializable{
+public class CurrentReportSceneController extends RootController implements Initializable{
 
     @FXML
     private ResourceBundle resources;

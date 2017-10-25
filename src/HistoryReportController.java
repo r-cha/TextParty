@@ -5,7 +5,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 
-public class HistoryReportController implements Initializable{
+public class HistoryReportController extends RootController implements Initializable{
 
     @FXML
     private ResourceBundle resources;

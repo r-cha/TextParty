@@ -4,7 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.MenuItem;
 
-public class AboutController implements Initializable{
+public class AboutController extends RootController implements Initializable{
 
     @FXML
     private ResourceBundle resources;

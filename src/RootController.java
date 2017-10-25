@@ -63,6 +63,7 @@ public class RootController implements Initializable {
         		
         		try {
         			
+        			System.err.println("STOP");
 					mainApp.stop();
 					
 				} catch (Exception e) {

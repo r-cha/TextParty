@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.text.TextFlow;
 
-public class HelpController implements Initializable{
+public class HelpController extends RootController implements Initializable{
 	
     @FXML
     private ResourceBundle resources;
