@@ -4,8 +4,8 @@ import java.time.format.DateTimeFormatter;
 
 public class RecordFile {
 	
-	public static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyyy");
-	LocalDate date;
+	private static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+	public LocalDate date;
 
 	public final File file; //File name being read
 	public final int numLines; //number of lines in file

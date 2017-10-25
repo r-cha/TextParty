@@ -58,5 +58,14 @@ public class HistoryReportController extends RootController implements Initializ
     
     public void update() {
     	
+    	numberOfFilesText.setText(Integer.toString(mainApp.history.size()));
+    	
+    	for (RecordFile record : mainApp.history) {
+    		
+    		// Insert Historical record calculations here
+    		
+    	}
+    	
+    	
     }
 }
