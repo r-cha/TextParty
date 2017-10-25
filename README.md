@@ -1,4 +1,5 @@
 # TextParty  
+![TextParty Logo](https://raw.githubusercontent.com/r-cha/CSE360/master/src/ProjectScenes/Asset%201.jpg?token=AXP2s3BPqEAXBXrrJ_VajzU9uvj0tJKhks5Z-gpYwA%3D%3D)  
 A Project for CSE 360: Introduction to Software Engineering  
 
 ## Requirements  
