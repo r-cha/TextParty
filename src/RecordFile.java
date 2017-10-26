@@ -1,8 +1,15 @@
 import java.io.File;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public class RecordFile {
+public class RecordFile implements Serializable{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -565555512807439922L;
+	
 	
 	private static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyyy");
 	public LocalDate date;
