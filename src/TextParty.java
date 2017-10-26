@@ -1,4 +1,8 @@
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 import javafx.application.Application;
@@ -26,13 +30,23 @@ public class TextParty extends Application{
 		return primaryStage;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void start(Stage primaryStage) throws IOException {
 
 		this.primaryStage = primaryStage;
 		this.primaryStage.setTitle("TextParty");
 		
-		history = new ArrayList<RecordFile>();
+		// Deserialize history file if available
+        try {
+            FileInputStream fi = new FileInputStream("history.tpy");
+            ObjectInputStream si = new ObjectInputStream(fi);
+            history = (ArrayList<RecordFile>) si.readObject();
+            si.close();
+        } catch (Exception e) {
+        	history = new ArrayList<RecordFile>();
+            e.printStackTrace();
+        }
 		
 		primaryStage.setResizable(false);
 		
@@ -45,7 +59,16 @@ public class TextParty extends Application{
 	@Override
 	public void stop() throws Exception{
 		
-		// TODO: Save history
+		// Serialize history to file
+        try {
+            FileOutputStream fo = new FileOutputStream("history.tpy");
+            ObjectOutputStream so = new ObjectOutputStream(fo);
+            so.writeObject(history);
+            so.flush();
+            so.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 		
 		System.err.println("STOP");
 		primaryStage.close();
