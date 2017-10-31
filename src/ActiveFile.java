@@ -1,7 +1,5 @@
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -50,6 +48,11 @@ public class ActiveFile {
 
 	}
 	
+	
+	/**
+	 * Analyzes calling ActiveFile text to populate required statistics (given in README)
+	 * @author Mason Salisbury
+	 */
 	public void analyze() {
 		
 		//Finding the number of lines in the file
@@ -131,6 +134,11 @@ public class ActiveFile {
 		
 	}
 	
+	
+	/**
+	 * Generates a copy of ActiveFile text with punctuation removed.
+	 * @author Mason Salisbury
+	 */
 	public void removePunctuation() {
 		
 		String noPunct[] = completeFile.split("\\p{Punct}");

@@ -30,6 +30,9 @@ public class TextParty extends Application{
 		return primaryStage;
 	}
 
+	/**
+	 * initializes the application by initializing the stage and scene, and deserializing history from a file if present.
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void start(Stage primaryStage) throws IOException {
@@ -39,13 +42,15 @@ public class TextParty extends Application{
 		
 		// Deserialize history file if available
         try {
+        	System.err.println("LOAD HISTORY");
             FileInputStream fi = new FileInputStream("history.tpy");
             ObjectInputStream si = new ObjectInputStream(fi);
             history = (ArrayList<RecordFile>) si.readObject();
             si.close();
+            System.err.println("LOADED");
         } catch (Exception e) {
         	history = new ArrayList<RecordFile>();
-            e.printStackTrace();
+            System.err.println("NO HISTORY");
         }
 		
 		primaryStage.setResizable(false);
@@ -56,6 +61,9 @@ public class TextParty extends Application{
 
 	}
 	
+	/**
+	 * Serializes history to file, then closes the main stage and ends the program.
+	 */
 	@Override
 	public void stop() throws Exception{
 		

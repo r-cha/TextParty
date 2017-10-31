@@ -57,10 +57,13 @@ public class RootController implements Initializable {
         assert helpMenuItem != null : "fx:id=\"helpMenuItem\" was not injected: check your FXML file 'stage.fxml'.";
         assert historyReportMenuItem != null : "fx:id=\"historyReportMenuItem\" was not injected: check your FXML file 'stage.fxml'.";
 
-        /*
-         * FILE Menu
-         */
+        /************* 
+         * FILE Menu *
+         *************/
         
+        /**
+         * Open File button opens a system dialog to choose a file to load.
+         */
         openFileMenuItem.setOnAction(new EventHandler<ActionEvent>() {
         	@Override
         	public void handle(ActionEvent event) {
@@ -84,6 +87,9 @@ public class RootController implements Initializable {
         	}
         });
         
+        /**
+         * Close button stops the application, serializing the history if one has been initiated.
+         */
         closeMenuItem.setOnAction(new EventHandler<ActionEvent>() {
         	@Override
         	public void handle(ActionEvent event) {
@@ -99,10 +105,14 @@ public class RootController implements Initializable {
         	}
         });
         
-        /*
-         * VIEW menu
-         */
+        /*************
+         * VIEW menu *
+         *************/
         
+        /**
+         * Current Report button opens a view of the statistics of the currently-loaded file. 
+         * This button simply shows the scene of statistics, but loading the scene analyzes the current file.        
+         */
         currentReportMenuItem.setOnAction(new EventHandler<ActionEvent>() {
         	@Override
         	public void handle(ActionEvent event) {
@@ -119,6 +129,9 @@ public class RootController implements Initializable {
         	}
         });
         
+        /**
+         * Remove Punctuation button shows a view that displays the text of the current active file with punctuation removed.
+         */
         removePunctuationMenuItem.setOnAction(new EventHandler<ActionEvent>() {
         	@Override
         	public void handle(ActionEvent event) {
@@ -139,6 +152,10 @@ public class RootController implements Initializable {
         	}
         });
         
+        
+        /**
+         * History Log button shows a list of past loaded files, including filename and date.
+         */
         historyLogMenuItem.setOnAction(new EventHandler<ActionEvent>() {
         	@Override
         	public void handle(ActionEvent event) {
@@ -155,6 +172,10 @@ public class RootController implements Initializable {
         	}
         });
         
+        /**
+         * History Report button shows cumulative calculations of the given statistics for all files included in the history. 
+         * The historical files are not reloaded and reanalyzed, because historical item statistics are recorded when they are transferred from the ActiveFile to RecordFile type.
+         */
         historyReportMenuItem.setOnAction(new EventHandler<ActionEvent>() {
         	@Override
         	public void handle(ActionEvent event) {
@@ -172,10 +193,13 @@ public class RootController implements Initializable {
         });
         
         
-        /*
-         * HELP Menu
-         */
+        /*************
+         * HELP Menu *
+         *************/
         
+        /**
+         * Help button displays a scene that contains the Help information.
+         */
         helpMenuItem.setOnAction(new EventHandler<ActionEvent>() {
         	@Override
         	public void handle(ActionEvent event) {
@@ -192,6 +216,9 @@ public class RootController implements Initializable {
         	}
         });
         
+        /**
+         * About button shows the About scene
+         */
         aboutMenuItem.setOnAction(new EventHandler<ActionEvent>() {
         	@Override
         	public void handle(ActionEvent event) {

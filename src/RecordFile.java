@@ -4,10 +4,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class RecordFile implements Serializable{
-	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = -565555512807439922L;
 	
 	
@@ -22,6 +19,10 @@ public class RecordFile implements Serializable{
 	public final double avgWordLength; //average word length
 	public final double avgCharLines; //average characters per line
 	
+	/**
+	 * Class constructor using the parameters of a given ActiveFile
+	 * @param in
+	 */
 	public RecordFile(ActiveFile in) {
 		this.file = (in.getFile());
 		this.numLines = in.getNumLines();
@@ -34,6 +35,11 @@ public class RecordFile implements Serializable{
 		date = LocalDate.now();
 	}
 	
+	/**
+	 * Generates a string that represents the RecordFile.
+	 * Used to list the history in a log view.
+	 * @returns	a string that represents a RecordFile
+	 */
 	@Override
 	public String toString() {
 		return file.getName() + "\t" + dtf.format(date);
