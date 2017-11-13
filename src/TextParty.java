@@ -16,7 +16,7 @@ public class TextParty extends Application{
 
 	private Stage primaryStage;
 	private BorderPane rootLayout;
-	private AnchorPane defaultScene, currentReportScene, currentNoPunctuationScene, historyLogScene, historyReportScene, helpScene, aboutScene;
+	private AnchorPane defaultScene, currentReportScene, currentNoPunctuationScene, historyLogScene, historyReportScene, helpScene, aboutScene, snakeScene;
 	private RootController rootController;
 
 	public ActiveFile current;
@@ -257,6 +257,26 @@ public class TextParty extends Application{
 			controller.setMainApp(this);
 			controller.update();
 
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void showSnakeScene() {
+		
+		try {
+			// Load default scene
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(TextParty.class.getResource("ProjectScenes/snakeScene.fxml"));
+			snakeScene = (AnchorPane) loader.load();
+
+			// Set Scene into center of root layout
+			rootLayout.setCenter(snakeScene);
+
+			SnakeController controller = loader.getController();
+			controller.setMainApp(this);
+			controller.update();
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
