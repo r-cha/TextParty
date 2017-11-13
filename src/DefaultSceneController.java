@@ -38,12 +38,12 @@ public class DefaultSceneController extends RootController implements Initializa
         	
         	@Override
         	public void handle(ActionEvent event) {
-        		System.err.println("ANALYZE");
         		if (mainApp.current != null) {
         			
         			mainApp.current.openFile();
         			mainApp.current.analyze();
         			mainApp.history.add(new RecordFile(mainApp.current));
+        			mainApp.current.removePunctuation();
         			
         		}
         		mainApp.showCurrentReportScene();

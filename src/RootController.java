@@ -70,7 +70,6 @@ public class RootController implements Initializable {
         		
         		try {
         			
-        			System.err.println("OPEN");        			
         			FileChooser fileChooser = new FileChooser();
         			fileChooser.setTitle("Open Resource File");
         			mainApp.current = new ActiveFile(fileChooser.showOpenDialog(mainApp.getPrimaryStage()));
@@ -116,7 +115,6 @@ public class RootController implements Initializable {
         		
         		try {
         			
-        			System.err.println("CURRENT REPORT");
 					mainApp.showCurrentReportScene();
 					
 				} catch (Exception e) {
@@ -134,11 +132,6 @@ public class RootController implements Initializable {
         	public void handle(ActionEvent event) {
         		
         		try {
-        			
-        			System.err.println("CURRENT W//O PUNCTUATION");
-        			
-        			if (mainApp.current != null)
-        				mainApp.current.removePunctuation();
         			
 					mainApp.showCurrentNoPunctuationScene();
 					
@@ -159,7 +152,6 @@ public class RootController implements Initializable {
         		
         		try {
         			
-        			System.err.println("HISTORY LOG");
 					mainApp.showHistoryLogScene();
 					
 				} catch (Exception e) {
@@ -179,7 +171,6 @@ public class RootController implements Initializable {
         		
         		try {
         			
-        			System.err.println("HISTORY REPORT");
 					mainApp.showHistoryReportScene();
 					
 				} catch (Exception e) {
@@ -203,7 +194,6 @@ public class RootController implements Initializable {
         		
         		try {
         			
-        			System.err.println("HELP");
 					mainApp.showHelpScene();
 					
 				} catch (Exception e) {
@@ -221,8 +211,7 @@ public class RootController implements Initializable {
         	public void handle(ActionEvent event) {
         		
         		try {
-        			
-        			System.err.println("ABOUT");
+
 					mainApp.showAboutScene();
 					
 				} catch (Exception e) {

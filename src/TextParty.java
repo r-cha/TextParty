@@ -42,15 +42,12 @@ public class TextParty extends Application{
 		
 		// Deserialize history file if available
         try {
-        	System.err.println("LOAD HISTORY");
             FileInputStream fi = new FileInputStream("history.tpy");
             ObjectInputStream si = new ObjectInputStream(fi);
             history = (ArrayList<RecordFile>) si.readObject();
             si.close();
-            System.err.println("LOADED");
         } catch (Exception e) {
         	history = new ArrayList<RecordFile>();
-            System.err.println("NO HISTORY");
         }
 		
 		primaryStage.setResizable(false);
@@ -77,8 +74,7 @@ public class TextParty extends Application{
         } catch (Exception e) {
             e.printStackTrace();
         }
-		
-		System.err.println("STOP");
+        
 		primaryStage.close();
 		
 	}
@@ -140,7 +136,7 @@ public class TextParty extends Application{
 
 		try {
 
-			// Load default scene
+			// Load current report scene
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(TextParty.class.getResource("ProjectScenes/currentReportScene.fxml"));
 			currentReportScene = (AnchorPane) loader.load();
@@ -161,7 +157,7 @@ public class TextParty extends Application{
 
 		try {
 
-			// Load default scene
+			// Load no punctuation scene
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(TextParty.class.getResource("ProjectScenes/currentNoPunctuationScene.fxml"));
 			currentNoPunctuationScene = (AnchorPane) loader.load();
@@ -182,7 +178,7 @@ public class TextParty extends Application{
 
 		try {
 
-			// Load default scene
+			// Load history log scene
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(TextParty.class.getResource("ProjectScenes/historyLogScene.fxml"));
 			historyLogScene = (AnchorPane) loader.load();
@@ -203,7 +199,7 @@ public class TextParty extends Application{
 
 		try {
 
-			// Load default scene
+			// Load history report scene
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(TextParty.class.getResource("ProjectScenes/historyReportScene.fxml"));
 			historyReportScene = (AnchorPane) loader.load();
@@ -224,7 +220,7 @@ public class TextParty extends Application{
 
 		try {
 
-			// Load default scene
+			// Load help scene
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(TextParty.class.getResource("ProjectScenes/helpScene.fxml"));
 			helpScene = (AnchorPane) loader.load();
@@ -245,7 +241,7 @@ public class TextParty extends Application{
 
 		try {
 
-			// Load default scene
+			// Load about scene
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(TextParty.class.getResource("ProjectScenes/aboutScene.fxml"));
 			aboutScene = (AnchorPane) loader.load();
@@ -265,7 +261,7 @@ public class TextParty extends Application{
 	public void showSnakeScene() {
 		
 		try {
-			// Load default scene
+			// Load snake scene
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(TextParty.class.getResource("ProjectScenes/snakeScene.fxml"));
 			snakeScene = (AnchorPane) loader.load();
