@@ -15,13 +15,10 @@ public class CurrentNoPunctuationController extends RootController implements In
 	private URL location;
 
 	@FXML
-	private TextFlow textWithoutPunctuationTexftFlow;
+	private Text withoutPunctuationText;
 
 	@FXML
 	private Text fileNameText;
-
-	@FXML
-	private Button saveButton;
 
 	private TextParty mainApp;
 
@@ -31,9 +28,10 @@ public class CurrentNoPunctuationController extends RootController implements In
 
 	@FXML
 	public void initialize(URL location, ResourceBundle resources) {
-		assert textWithoutPunctuationTexftFlow != null : "fx:id=\"textWithoutPunctuationTexftFlow\" was not injected: check your FXML file 'currentNoPunctuationScene.fxml'.";
+		assert withoutPunctuationText != null : "fx:id=\"withoutPunctuationText\" was not injected: check your FXML file 'currentNoPunctuationScene.fxml'.";
 		assert fileNameText != null : "fx:id=\"fileNameText\" was not injected: check your FXML file 'currentNoPunctuationScene.fxml'.";
-		assert saveButton != null : "fx:id=\"saveButton\" was not injected: check your FXML file 'currentNoPunctuationScene.fxml'.";
+		
+		withoutPunctuationText.setWrappingWidth(350);
 
 	}
 
@@ -44,8 +42,7 @@ public class CurrentNoPunctuationController extends RootController implements In
 		if (mainApp.current != null) {
 			
 			fileNameText.setText(mainApp.current.getFile().getName());
-			Text content = new Text(mainApp.current.getNoPunctuation());
-			textWithoutPunctuationTexftFlow = new TextFlow(content);
+			withoutPunctuationText.setText(mainApp.current.getNoPunctuation());
 			
 		}
 		
