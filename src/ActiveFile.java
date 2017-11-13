@@ -12,6 +12,7 @@ public class ActiveFile {
 	private int blankLines; //number of blank lines in file
 	private int numWords; //total number of words in file
 	private int numSpaces;
+	private int totalChars;
 	private double avgWordLength; //average word length
 	private double avgCharLines; //average characters per line
 	private ArrayList<String> mostCommonWords; //list of the most commonly occurring words in the file
@@ -32,6 +33,7 @@ public class ActiveFile {
 		wordCount = new ArrayList<Object>();
 		completeFile = "";
 		numSpaces = 0;
+		totalChars = 0;
 	}
 
 	public void openFile() {
@@ -48,6 +50,22 @@ public class ActiveFile {
 
 	}
 	
+	private int calculateLines() {
+		return fileLines.size();
+	}
+	
+	private void populateCompleteFile() {
+		
+		for (String s : fileLines) {
+			
+			totalChars += s.length();
+			completeFile += s;
+			completeFile += "\n";
+			
+		}
+		
+	}
+	
 	
 	/**
 	 * Analyzes calling ActiveFile text to populate required statistics (given in README)
@@ -56,17 +74,10 @@ public class ActiveFile {
 	public void analyze() {
 		
 		//Finding the number of lines in the file
-		numLines = fileLines.size();
+		numLines = this.calculateLines();
 		
 		//Finding the average characters per line
-		int totalChars = 0;
-		for (String s : fileLines) {
-			
-			totalChars += s.length();
-			completeFile += s;
-			completeFile += "\n";
-			
-		}
+		this.populateCompleteFile();
 		avgCharLines = (double)totalChars / numLines;
 		
 		//Finding the most commonly occurring words and number of blank lines
