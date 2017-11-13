@@ -30,7 +30,7 @@ public class CurrentNoPunctuationController extends RootController implements In
 		assert withoutPunctuationText != null : "fx:id=\"withoutPunctuationText\" was not injected: check your FXML file 'currentNoPunctuationScene.fxml'.";
 		assert fileNameText != null : "fx:id=\"fileNameText\" was not injected: check your FXML file 'currentNoPunctuationScene.fxml'.";
 		
-		withoutPunctuationText.setWrappingWidth(350);
+		withoutPunctuationText.setWrappingWidth(450);
 
 	}
 
