@@ -46,7 +46,7 @@ public class DefaultSceneController extends RootController implements Initializa
         			mainApp.current.removePunctuation();
         			
         		}
-        		mainApp.showCurrentReportScene();
+        		mainApp.sceneTransition("currentReportScene");
         	}
         });
         

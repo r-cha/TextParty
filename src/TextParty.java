@@ -16,8 +16,9 @@ public class TextParty extends Application{
 
 	private Stage primaryStage;
 	private BorderPane rootLayout;
-	private AnchorPane defaultScene, currentReportScene, currentNoPunctuationScene, historyLogScene, historyReportScene, helpScene, aboutScene, snakeScene;
+	private AnchorPane scene;
 	private RootController rootController;
+	private RootController controller;
 
 	public ActiveFile current;
 	public ArrayList<RecordFile> history;
@@ -54,7 +55,7 @@ public class TextParty extends Application{
 		
 		initRootLayout();
 
-		showDefaultScene();
+		sceneTransition("defaultScene");
 
 	}
 	
@@ -86,6 +87,28 @@ public class TextParty extends Application{
 	 *                                                           *
 	 *                                                           * 
 	 *************************************************************/
+	
+	public void sceneTransition(String sceneName) {
+		
+		try {
+
+			// Load default scene
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(TextParty.class.getResource("ProjectScenes/" + sceneName + ".fxml"));
+			scene = (AnchorPane) loader.load();
+
+			// Set Scene into center of root layout
+			rootLayout.setCenter(scene);
+
+			controller = loader.getController();
+			controller.setMainApp(this);
+			controller.update();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
 
 	public void initRootLayout() {
 
@@ -111,171 +134,6 @@ public class TextParty extends Application{
 		}
 	}
 
-	public void showDefaultScene() {
-
-		try {
-
-			// Load default scene
-			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(TextParty.class.getResource("ProjectScenes/defaultScene.fxml"));
-			defaultScene = (AnchorPane) loader.load();
-
-			// Set Scene into center of root layout
-			rootLayout.setCenter(defaultScene);
-
-			DefaultSceneController controller = (DefaultSceneController) loader.getController();
-			controller.setMainApp(this);
-			controller.update();
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	public void showCurrentReportScene() {
-
-		try {
-
-			// Load current report scene
-			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(TextParty.class.getResource("ProjectScenes/currentReportScene.fxml"));
-			currentReportScene = (AnchorPane) loader.load();
-
-			// Set Scene into center of root layout
-			rootLayout.setCenter(currentReportScene);
-
-			CurrentReportSceneController controller = loader.getController();
-			controller.setMainApp(this);
-			controller.update();
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	public void showCurrentNoPunctuationScene() {
-
-		try {
-
-			// Load no punctuation scene
-			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(TextParty.class.getResource("ProjectScenes/currentNoPunctuationScene.fxml"));
-			currentNoPunctuationScene = (AnchorPane) loader.load();
-
-			// Set Scene into center of root layout
-			rootLayout.setCenter(currentNoPunctuationScene);
-
-			CurrentNoPunctuationController controller = loader.getController();
-			controller.setMainApp(this);
-			controller.update();
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	public void showHistoryLogScene() {
-
-		try {
-
-			// Load history log scene
-			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(TextParty.class.getResource("ProjectScenes/historyLogScene.fxml"));
-			historyLogScene = (AnchorPane) loader.load();
-
-			// Set Scene into center of root layout
-			rootLayout.setCenter(historyLogScene);
-
-			HistoryLogController controller = loader.getController();
-			controller.setMainApp(this);
-			controller.update();
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	public void showHistoryReportScene() {
-
-		try {
-
-			// Load history report scene
-			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(TextParty.class.getResource("ProjectScenes/historyReportScene.fxml"));
-			historyReportScene = (AnchorPane) loader.load();
-
-			// Set Scene into center of root layout
-			rootLayout.setCenter(historyReportScene);
-
-			HistoryReportController controller = loader.getController();
-			controller.setMainApp(this);
-			controller.update();
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	public void showHelpScene() {
-
-		try {
-
-			// Load help scene
-			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(TextParty.class.getResource("ProjectScenes/helpScene.fxml"));
-			helpScene = (AnchorPane) loader.load();
-
-			// Set Scene into center of root layout
-			rootLayout.setCenter(helpScene);
-
-			HelpController controller = loader.getController();
-			controller.setMainApp(this);
-			controller.update();
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	public void showAboutScene() {
-
-		try {
-
-			// Load about scene
-			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(TextParty.class.getResource("ProjectScenes/aboutScene.fxml"));
-			aboutScene = (AnchorPane) loader.load();
-
-			// Set Scene into center of root layout
-			rootLayout.setCenter(aboutScene);
-
-			AboutController controller = loader.getController();
-			controller.setMainApp(this);
-			controller.update();
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
 	
-	public void showSnakeScene() {
-		
-		try {
-			// Load snake scene
-			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(TextParty.class.getResource("ProjectScenes/snakeScene.fxml"));
-			snakeScene = (AnchorPane) loader.load();
-
-			// Set Scene into center of root layout
-			rootLayout.setCenter(snakeScene);
-
-			SnakeController controller = loader.getController();
-			controller.setMainApp(this);
-			controller.update();
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
 
 }

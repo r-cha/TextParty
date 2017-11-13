@@ -32,7 +32,7 @@ public class AboutController extends RootController implements Initializable{
         	
         	@Override
         	public void handle(ActionEvent event) {
-        		mainApp.showSnakeScene();
+        		mainApp.sceneTransition("snakeScene");
         	}
         });
     }
