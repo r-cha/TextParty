@@ -17,6 +17,6 @@ Text Files Analyzer:
      - Most common words
 - [ ] Help information
 - [x] Removing punctuation and possession from analysis
-- [ ] Handling multiple files
+- [X] Handling multiple files
      - Reporting history of all files processed (name and date)
      - Averages across files
