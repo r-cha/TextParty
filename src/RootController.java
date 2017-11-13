@@ -74,7 +74,7 @@ public class RootController implements Initializable {
         			fileChooser.setTitle("Open Resource File");
         			mainApp.current = new ActiveFile(fileChooser.showOpenDialog(mainApp.getPrimaryStage()));
         			
-        			mainApp.showDefaultScene();
+        			mainApp.sceneTransition("defaultScene");
 					
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -115,7 +115,7 @@ public class RootController implements Initializable {
         		
         		try {
         			
-					mainApp.showCurrentReportScene();
+					mainApp.sceneTransition("currentReportScene");
 					
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -133,7 +133,7 @@ public class RootController implements Initializable {
         		
         		try {
         			
-					mainApp.showCurrentNoPunctuationScene();
+					mainApp.sceneTransition("currentNoPunctuationScene");
 					
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -152,7 +152,7 @@ public class RootController implements Initializable {
         		
         		try {
         			
-					mainApp.showHistoryLogScene();
+					mainApp.sceneTransition("historyLogScene");
 					
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -171,7 +171,7 @@ public class RootController implements Initializable {
         		
         		try {
         			
-					mainApp.showHistoryReportScene();
+					mainApp.sceneTransition("historyReportScene");
 					
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -194,7 +194,7 @@ public class RootController implements Initializable {
         		
         		try {
         			
-					mainApp.showHelpScene();
+					mainApp.sceneTransition("helpScene");
 					
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -212,7 +212,7 @@ public class RootController implements Initializable {
         		
         		try {
 
-					mainApp.showAboutScene();
+					mainApp.sceneTransition("aboutScene");
 					
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -220,5 +220,9 @@ public class RootController implements Initializable {
         		
         	}
         });
+    }
+    
+    public void update() {
+    	
     }
 }
