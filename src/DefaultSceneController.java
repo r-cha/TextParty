@@ -43,6 +43,7 @@ public class DefaultSceneController extends RootController implements Initializa
         			
         			mainApp.current.openFile();
         			mainApp.current.analyze();
+        			mainApp.history.add(new RecordFile(mainApp.current));
         			
         		}
         		mainApp.showCurrentReportScene();

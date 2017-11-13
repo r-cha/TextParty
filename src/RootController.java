@@ -75,9 +75,6 @@ public class RootController implements Initializable {
         			fileChooser.setTitle("Open Resource File");
         			mainApp.current = new ActiveFile(fileChooser.showOpenDialog(mainApp.getPrimaryStage()));
         			
-        			if (mainApp.current != null)
-        				mainApp.history.add(new RecordFile(mainApp.current));
-        			
         			mainApp.showDefaultScene();
 					
 				} catch (Exception e) {

@@ -59,31 +59,32 @@ public class HistoryReportController extends RootController implements Initializ
     public void update() {
     	
     	numberOfFilesText.setText(Integer.toString(mainApp.history.size()));
+    	
+    	// Variables to keep track of total and average statistics
     	int totalLines = 0;
-    	int totalBlankLines = 0;                            // Variables to keep track of total and average statistics
+    	int totalBlankLines = 0;                            
     	int totalNumWords = 0;
     	int totalNumSpaces = 0;
     	double totalAvgWordLength = 0;
     	double totalAvgCharLines = 0;
     	
     	for (RecordFile record : mainApp.history) 
-    	
     	{
-    		totalLines += record.numLines;                    // For each RecordFile in mainApp.history, add the statistics to the global total
+    		// For each RecordFile in mainApp.history, add the statistics to the global total
+    		totalLines += record.numLines;                    
     		totalBlankLines += record.blankLines;
     		totalNumWords += record.numWords;
     		totalNumSpaces += record.numSpaces;
-    		totalAvgWordLength += record.numSpaces;
+    		totalAvgWordLength += record.avgWordLength;
     		totalAvgCharLines += record.avgCharLines;
-    		
-    		// TODO: Insert Historical record calculations here
-    		
     	}
-    	totalAvgWordLength = totalAvgWordLength / mainApp.history.size();        // Calculate the averages using the cumulative values from the history list
+    	
+    	// Calculate the averages using the cumulative values from the history list
+    	totalAvgWordLength = totalAvgWordLength / mainApp.history.size();        
     	totalAvgCharLines = totalAvgCharLines / mainApp.history.size();
     	
-    	
-    	numberOfLinesText.setText(Integer.toString(totalLines));                // Update the textboxes with the new values
+    	// Update the textboxes with the new values
+    	numberOfLinesText.setText(Integer.toString(totalLines));                
     	numberOfBlankLinesText.setText(Integer.toString(totalBlankLines));
     	numberOfWordsText.setText(Integer.toString(totalNumWords));
     	numberOfSpacesText.setText(Integer.toString(totalNumSpaces));
