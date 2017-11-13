@@ -25,11 +25,15 @@
             </HBox>
          </top>
          <center>
-            <Text fx:id="withoutPunctuationText" BorderPane.alignment="CENTER" text="No File Selected">
-               <font>
-                  <Font size="12.0" />
-               </font>
-            </Text>
+            <ScrollPane prefViewportHeight="15.9609375" prefViewportWidth="85.3125">
+               <content>
+                  <Text fx:id="withoutPunctuationText" text="No File Selected" BorderPane.alignment="CENTER">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </Text>
+               </content>
+            </ScrollPane>
          </center>
       </BorderPane>
    </children>
