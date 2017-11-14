@@ -15,7 +15,7 @@ Text Files Analyzer:
      - Average chars per line
      - Average word length
      - Most common words
-- [ ] Help information
+- [x] Help information
 - [x] Removing punctuation and possession from analysis
 - [X] Handling multiple files
      - Reporting history of all files processed (name and date)
