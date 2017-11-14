@@ -17,7 +17,7 @@ public class ActiveFile {
 	private double avgCharLines; //average characters per line
 	private ArrayList<String> mostCommonWords; //list of the most commonly occurring words in the file
 	private ArrayList<String> fileLines;
-	ArrayList<Object> wordCount; //index = word, index + 1 = number of times word occurs
+	private ArrayList<Object> wordCount; //index = word, index + 1 = number of times word occurs
 	private String completeFile;
 
 	public ActiveFile(File selected) {
@@ -57,14 +57,14 @@ public class ActiveFile {
 	private void populateCompleteFile() {
 		
 		for (String s : fileLines) {
-			
 			totalChars += s.length();
 			completeFile += s;
 			completeFile += "\n";
-			
 		}
 		
 	}
+	
+	
 	
 	
 	/**
@@ -141,7 +141,11 @@ public class ActiveFile {
 		//Finding average word length
 		avgWordLength = (double) totWordLength / numWords;
 		
-		// TODO: Implement space counter
+		// Count spaces
+		for (int i = 0; i < completeFile.length(); i++) {
+			char current = completeFile.charAt(i);
+			if (current == ' ') numSpaces++;
+		}
 		
 	}
 	
