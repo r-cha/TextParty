@@ -79,14 +79,6 @@ public class TextParty extends Application{
 		primaryStage.close();
 		
 	}
-
-	/*************************************************************
-	 *                                                           *
-	 *                                                           * 
-	 * ALL METHODS BELOW THIS POINT ARE SCENE TRANSITION METHODS *
-	 *                                                           *
-	 *                                                           * 
-	 *************************************************************/
 	
 	/**
 	 * Transitions to a scene from any other scene. 
