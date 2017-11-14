@@ -88,6 +88,12 @@ public class TextParty extends Application{
 	 *                                                           * 
 	 *************************************************************/
 	
+	/**
+	 * Transitions to a scene from any other scene. 
+	 * Allows addition of scenes without adding a new "showScene" function, just pass in valid FXML document name.
+	 * @param sceneName - a String that is the filename of the scene you wish to load, excluding any prefix or suffix.
+	 * @author Robert Chandler
+	 */
 	public void sceneTransition(String sceneName) {
 		
 		try {
