@@ -3,9 +3,10 @@ import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 
-public class SnakeController extends RootController implements Initializable{
+public class SnakeController implements Initializable{
 
     @FXML
     private ResourceBundle resources;
@@ -15,7 +16,12 @@ public class SnakeController extends RootController implements Initializable{
 
     @FXML
     private Canvas snakeCanvas;
-
+    
+    private Scene scene;
+    
+    public void setMainScene(Scene scene) {
+    	this.scene = scene;
+    }
     @FXML
     public void initialize(URL location, ResourceBundle resources) {
         assert snakeCanvas != null : "fx:id=\"snakeCanvas\" was not injected: check your FXML file 'snakeScene.fxml'.";

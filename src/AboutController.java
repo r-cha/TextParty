@@ -5,7 +5,11 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.MenuItem;
+import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 
 public class AboutController extends RootController implements Initializable{
 
@@ -32,7 +36,24 @@ public class AboutController extends RootController implements Initializable{
         	
         	@Override
         	public void handle(ActionEvent event) {
-        		mainApp.sceneTransition("snakeScene");
+                
+                StackPane secondaryLayout = new StackPane();
+                 
+                Scene secondScene = new Scene(secondaryLayout, 400, 400, Color.FORESTGREEN);
+ 
+                Stage secondStage = new Stage();
+                secondStage.setTitle("Snake");
+                secondStage.setScene(secondScene);
+                
+                
+                 
+                //Set position of second window, related to primary window.
+                secondStage.setX(mainApp.getPrimaryStage().getX() + 250);
+                secondStage.setY(mainApp.getPrimaryStage().getY() + 100);
+                secondStage.show();
+                
+                SnakeController controller = new SnakeController();
+                controller.setMainScene(secondScene);
         	}
         });
     }
