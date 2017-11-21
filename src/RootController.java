@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.MenuItem;
 import javafx.stage.FileChooser;
+import javafx.stage.FileChooser.ExtensionFilter;
 
 public class RootController implements Initializable {
 
@@ -72,6 +73,10 @@ public class RootController implements Initializable {
         			
         			FileChooser fileChooser = new FileChooser();
         			fileChooser.setTitle("Open Resource File");
+        			fileChooser.getExtensionFilters().addAll(
+        			         new ExtensionFilter("Text Files", "*.txt"),
+        			         new ExtensionFilter("All Files", "*.*"));
+        			
         			mainApp.current = new ActiveFile(fileChooser.showOpenDialog(mainApp.getPrimaryStage()));
         			
         			mainApp.sceneTransition("defaultScene");
