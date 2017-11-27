@@ -17,11 +17,7 @@
             </HBox>
          </top>
          <bottom>
-            <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-              <items>
-                <Button fx:id="refreshButton" mnemonicParsing="false" text="Refresh" />
-              </items>
-            </ToolBar>
+            <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
          </bottom>
          <center>
             <GridPane BorderPane.alignment="CENTER">

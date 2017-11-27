@@ -28,9 +28,6 @@ public class CurrentReportSceneController extends RootController implements Init
 	private Text numberOfLinesText;
 
 	@FXML
-	private Button reanalyzeButton;
-
-	@FXML
 	private Text fileNameText;
 
 	@FXML
@@ -56,28 +53,13 @@ public class CurrentReportSceneController extends RootController implements Init
 		assert wordLengthText != null : "fx:id=\"wordLengthText\" was not injected: check your FXML file 'currentReportScene.fxml'.";
 		assert mostCommonWordsList != null : "fx:id=\"mostCommonWordsList\" was not injected: check your FXML file 'currentReportScene.fxml'.";
 		assert numberOfLinesText != null : "fx:id=\"numberOfLinesText\" was not injected: check your FXML file 'currentReportScene.fxml'.";
-		assert reanalyzeButton != null : "fx:id=\"reanalyzeButton\" was not injected: check your FXML file 'currentReportScene.fxml'.";
 		assert fileNameText != null : "fx:id=\"fileNameText\" was not injected: check your FXML file 'currentReportScene.fxml'.";
 		assert numberOfBlankLinesText != null : "fx:id=\"numberOfBlankLinesText\" was not injected: check your FXML file 'currentReportScene.fxml'.";
 		assert charactersPerLineText != null : "fx:id=\"charactersPerLineText\" was not injected: check your FXML file 'currentReportScene.fxml'.";
 		assert numberOfWordsText != null : "fx:id=\"numberOfWordsText\" was not injected: check your FXML file 'currentReportScene.fxml'.";
 		assert numberOfSpacesText != null : "fx:id=\"numberOfSpacesText\" was not injected: check your FXML file 'currentReportScene.fxml'.";
 
-		reanalyzeButton.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent event) {
 
-				try {
-
-					mainApp.current.analyze();
-					update();
-
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-
-			}
-		});
 	}
 
 	public void update() {
