@@ -18,6 +18,7 @@ public class ActiveFile {
 	private ArrayList<String> mostCommonWords; //list of the most commonly occurring words in the file
 	private ArrayList<String> fileLines;
 	private ArrayList<Object> wordCount; //index = word, index + 1 = number of times word occurs
+	private ArrayList<String> bannedWords; //pronouns, a, an, the, etc
 	private String completeFile;
 
 	public ActiveFile(File selected) {
@@ -34,6 +35,43 @@ public class ActiveFile {
 		completeFile = "";
 		numSpaces = 0;
 		totalChars = 0;
+		
+		//A complete list of words considered common
+		bannedWords = new ArrayList<String>();
+		bannedWords.add("the");
+		bannedWords.add("he");
+		bannedWords.add("she");
+		bannedWords.add("it");
+		bannedWords.add("they");
+		bannedWords.add("them");
+		bannedWords.add("a");
+		bannedWords.add("an");
+		bannedWords.add("and");
+		bannedWords.add("in");
+		bannedWords.add("has");
+		bannedWords.add("for");
+		bannedWords.add("to");
+		bannedWords.add("too");
+		bannedWords.add("on");
+		bannedWords.add("that");
+		bannedWords.add("of");
+		bannedWords.add("when");
+		bannedWords.add("by");
+		bannedWords.add("will");
+		bannedWords.add("is");
+		bannedWords.add("as");
+		bannedWords.add("but");
+		bannedWords.add("i");
+		bannedWords.add("or");
+		bannedWords.add("not");
+		bannedWords.add("be");
+		bannedWords.add("can");
+		bannedWords.add("was");
+		bannedWords.add("from");
+		bannedWords.add("were");
+		
+		for (String s: bannedWords)
+			System.out.print(s + ", ");
 	}
 
 	public void openFile() {
@@ -82,6 +120,7 @@ public class ActiveFile {
 		
 		//Finding the most commonly occurring words and number of blank lines
 		int highOccur = 0;
+		int mostUncommon = 0;
 		for (String line : fileLines){
 			
 			if (line.equals("")) {
@@ -95,6 +134,11 @@ public class ActiveFile {
 			
 			for (int index = 0; index < word.length; index++) {
 				
+				if (!word[index].matches("[a-zA-Z0-9]+"))
+					continue;
+				
+				word[index] = word[index].toLowerCase();
+				
 				//If word is already in the list it increases the number of times it has occurred
 				if (wordCount.contains(word[index])) {
 					
@@ -104,6 +148,13 @@ public class ActiveFile {
 					if (value > highOccur)
 						highOccur = value;
 					
+					if (!bannedWords.contains(word[index])) {
+						
+						if (value > mostUncommon)
+							mostUncommon = value;
+						
+					}
+					
 				}
 				
 				else {
@@ -112,6 +163,13 @@ public class ActiveFile {
 					wordCount.add(1);
 					if (1 > highOccur)
 						highOccur = 1;
+					
+					if (!bannedWords.contains(word[index])) {
+						
+						if (1 > mostUncommon)
+							mostUncommon = 1;
+						
+					}
 					
 				}
 				
@@ -132,7 +190,14 @@ public class ActiveFile {
 			
 			//If word is one of the most occurring it adds it to mostCommonWords
 			if (numOccur == highOccur)
-				mostCommonWords.add(curWord);
+				mostCommonWords.add(curWord + " (" + numOccur + ")");
+			
+			if (highOccur != mostUncommon && numOccur == mostUncommon) {
+				
+				if (!bannedWords.contains(curWord))
+					mostCommonWords.add(curWord + " (" + numOccur + ")");
+				
+			}
 			
 			totWordLength += curWord.length() * numOccur;
 			
