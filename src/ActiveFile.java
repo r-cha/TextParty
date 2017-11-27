@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class ActiveFile {
@@ -18,7 +19,9 @@ public class ActiveFile {
 	private ArrayList<String> mostCommonWords; //list of the most commonly occurring words in the file
 	private ArrayList<String> fileLines;
 	private ArrayList<Object> wordCount; //index = word, index + 1 = number of times word occurs
-	private ArrayList<String> bannedWords; //pronouns, a, an, the, etc
+	private static ArrayList<String> bannedWords = new ArrayList<String>(Arrays.asList("the", "he", "she", "it", "they",
+							"them", "a", "an", "and", "in", "has", "for", "to", "too", "on", "that", "of", "when", "by",
+							"will", "is", "as", "but", "i", "or", "not", "be", "can", "was", "from", "were"));
 	private String completeFile;
 
 	public ActiveFile(File selected) {
@@ -35,43 +38,6 @@ public class ActiveFile {
 		completeFile = "";
 		numSpaces = 0;
 		totalChars = 0;
-		
-		//A complete list of words considered common
-		bannedWords = new ArrayList<String>();
-		bannedWords.add("the");
-		bannedWords.add("he");
-		bannedWords.add("she");
-		bannedWords.add("it");
-		bannedWords.add("they");
-		bannedWords.add("them");
-		bannedWords.add("a");
-		bannedWords.add("an");
-		bannedWords.add("and");
-		bannedWords.add("in");
-		bannedWords.add("has");
-		bannedWords.add("for");
-		bannedWords.add("to");
-		bannedWords.add("too");
-		bannedWords.add("on");
-		bannedWords.add("that");
-		bannedWords.add("of");
-		bannedWords.add("when");
-		bannedWords.add("by");
-		bannedWords.add("will");
-		bannedWords.add("is");
-		bannedWords.add("as");
-		bannedWords.add("but");
-		bannedWords.add("i");
-		bannedWords.add("or");
-		bannedWords.add("not");
-		bannedWords.add("be");
-		bannedWords.add("can");
-		bannedWords.add("was");
-		bannedWords.add("from");
-		bannedWords.add("were");
-		
-		for (String s: bannedWords)
-			System.out.print(s + ", ");
 	}
 
 	public void openFile() {
